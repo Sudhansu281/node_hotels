@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./db");
 const personRoutes  = require("./routes/personRoutes");
+require("dotenv").config();
 
 //middleware.
 const bodyParser = require("body-parser");
@@ -15,6 +16,8 @@ app.get("/", (req, res) => {
 //use the routers
 app.use("/person",personRoutes);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
   console.log("Server started at port 3000");
 });
